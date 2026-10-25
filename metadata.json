@@ -1,0 +1,6 @@
+{
+  "name": "CodeTogether - Real-Time Collaborative Code Editor",
+  "description": "Production-grade browser-based collaborative code editor featuring Monaco Editor, real-time WebSocket synchronization, rooms, access controls, and PostgreSQL persistence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

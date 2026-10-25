@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Container
+  db:
+    image: postgres:16-alpine
+    container_name: codetogether-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: codetogether
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d codetogether"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # CodeTogether Application Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: codetogether-app
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      SQL_HOST: db
+      SQL_USER: postgres
+      SQL_PASSWORD: postgrespassword
+      SQL_DB_NAME: codetogether
+      SQL_ADMIN_USER: postgres
+      SQL_ADMIN_PASSWORD: postgrespassword
+
+volumes:
+  postgres_data:
