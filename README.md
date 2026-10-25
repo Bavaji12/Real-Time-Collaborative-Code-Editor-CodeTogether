@@ -1,3 +1,4 @@
+project live link:[https://codetogether-real-time-collaborative-code-editor.ai.studio/?room=room-5u1o5g-vw1n](https://codetogether-real-time-collaborative-code-editor.ai.studio/?room=room-5u1o5g-vw1n)
 # CodeTogether — Real-Time Collaborative Code Editor
 
 **CodeTogether** is a production-grade, full-stack collaborative code editor designed for real-time pair programming, team coding interviews, and multi-user educational sessions. Connected collaborators edit in the same room, see each other's live cursor positions and selections, switch programming languages, and save revision snapshots backed by PostgreSQL.
